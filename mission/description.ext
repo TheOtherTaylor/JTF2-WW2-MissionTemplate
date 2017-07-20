@@ -1,0 +1,16 @@
+onLoadName = "JTF2 Dynamic Ops";
+onLoadMission = "Mission template for running JTF2 ops with a GM";
+author = "Anton Struyk and TheOtherTaylor";
+loadScreen = "logo.paa";
+
+#include "description\definitions.hpp"	//Most mission definition and base respawn setup
+#include "description\cfgParams.hpp"	//Mission parameters set in mission setup
+#include "taw_vd\dialog.hpp"            //View Distance setup
+
+class CfgFunctions
+{
+	#include "jtf2\cfgFunctionsInclude.hpp"
+	#include "taw_vd\CfgFunctions.hpp"
+};
+
+
