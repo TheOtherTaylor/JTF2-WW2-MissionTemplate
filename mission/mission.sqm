@@ -8,14 +8,14 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=312;
+		nextID=316;
 	};
 	class Camera
 	{
-		pos[]={2.2412846,26.931089,-27.149544};
-		dir[]={0.49996746,-0.46116203,0.73310322};
-		up[]={0.25985909,0.88728958,0.38103196};
-		aside[]={0.82619029,-6.6589564e-008,-0.56345206};
+		pos[]={16.874142,29.682079,33.33984};
+		dir[]={-0.012454512,-0.85176539,0.52386975};
+		up[]={-0.020244371,0.52386296,0.85155541};
+		aside[]={0.99976581,2.4898327e-007,0.023768798};
 	};
 };
 binarizationWanted=0;
@@ -26,13 +26,15 @@ addons[]=
 	"ace_explosives",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Modules_F_Multiplayer",
-	"task_force_radio_items"
+	"task_force_radio_items",
+	"WW2_Core_c_IF_System_Tanks_c",
+	"WW2_Core_c_IF_System_Artillery_c"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=8;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -75,18 +77,73 @@ class AddonsMetaData
 			author="[TF]Nkey";
 			url="https://github.com/michail-nikolaev/task-force-arma-3-radio";
 		};
+		class Item6
+		{
+			className="WW2_Core_c_IF_System_Tanks_c";
+			name="WW2_Core_c_IF_System_Tanks_c";
+		};
+		class Item7
+		{
+			className="WW2_Core_c_IF_System_Artillery_c";
+			name="WW2_Core_c_IF_System_Artillery_c";
+		};
 	};
 };
 randomSeed=9593576;
 class ScenarioData
 {
 	author="Anton and TheOtherTaylor";
+	disabledAI=1;
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="None";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
 	class Intel
 	{
-		briefingName="JTF2 WW2 Missions (v.3.4.4)";
+		briefingName="JTF2 WW2 Missions v0.3 (v.3.4.4)";
 		overviewText="A blank mission template for Zeus missions.";
 		resistanceWest=0;
 		startWeather=0;
@@ -106,7 +163,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=63;
+		items=65;
 		class Item0
 		{
 			dataType="Group";
@@ -4357,7 +4414,7 @@ class Mission
 						skill=0.60000002;
 						rank="CORPORAL";
 						init="Red_6 = group this; [this, ""o_uav""] call JTF2_fnc_SetGear;";
-						description="Platoon UAV Operator@Cossack 6";
+						description="Platoon Runner@Cossack 6";
 						isPlayable=1;
 					};
 					id=187;
@@ -4377,7 +4434,7 @@ class Mission
 						skill=0.60000002;
 						rank="SERGEANT";
 						init="Red_6 = group this; [this, ""o_jtac""] call JTF2_fnc_SetGear;";
-						description="Platoon JTAC@Cossack 6";
+						description="Platoon RTO@Cossack 6";
 						isPlayable=1;
 					};
 					id=185;
@@ -4498,7 +4555,7 @@ class Mission
 						skill=0.60000002;
 						rank="CORPORAL";
 						init="Red_1_6 = group this; [this, ""o_uav""] call JTF2_fnc_SetGear;";
-						description="Platoon UAV Operator@Cossack 1-6";
+						description="Platoon Runner@Cossack 1-6";
 						isPlayable=1;
 					};
 					id=127;
@@ -4518,7 +4575,7 @@ class Mission
 						skill=0.60000002;
 						rank="SERGEANT";
 						init="Red_1_6 = group this; [this, ""o_jtac""] call JTF2_fnc_SetGear;";
-						description="Platoon JTAC@Cossack 1-6";
+						description="Platoon RTO@Cossack 1-6";
 						isPlayable=1;
 					};
 					id=128;
@@ -5296,7 +5353,7 @@ class Mission
 						skill=0.60000002;
 						rank="CORPORAL";
 						init="Red_2_6 = group this; [this, ""o_uav""] call JTF2_fnc_SetGear;";
-						description="Platoon UAV Operator@Cossack 2-6";
+						description="Platoon Runner@Cossack 2-6";
 						isPlayable=1;
 					};
 					id=334;
@@ -5316,7 +5373,7 @@ class Mission
 						skill=0.60000002;
 						rank="SERGEANT";
 						init="Red_2_6 = group this; [this, ""o_jtac""] call JTF2_fnc_SetGear;";
-						description="Platoon JTAC@Cossack 2-6";
+						description="Platoon RTO@Cossack 2-6";
 						isPlayable=1;
 					};
 					id=335;
@@ -8085,7 +8142,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_jtac""] call JTF2_fnc_SetGear; Green_6 = group this;";
-						description="Company JTAC@Baker 6";
+						description="Company RTO@Baker 6";
 						isPlayable=1;
 					};
 					id=211;
@@ -8205,8 +8262,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						init="[this, ""g_uav""] call JTF2_fnc_SetGear;  Green_1_6 = group this;";
-						description="Platoon UAV Operator@Baker 1-6";
+						init="[this, ""g_rifleman""] call JTF2_fnc_SetGear;  Green_1_6 = group this;";
+						description="Platoon Runner@Baker 1-6";
 						isPlayable=1;
 					};
 					id=215;
@@ -8225,7 +8282,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_jtac""] call JTF2_fnc_SetGear; Green_1_6 = group this;";
-						description="Platoon JTAC@Baker 1-6";
+						description="Platoon RTO@Baker 1-6";
 						isPlayable=1;
 					};
 					id=216;
@@ -8379,7 +8436,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_marksman""] call JTF2_fnc_SetGear; Green_1_1 = group this;";
-						description="Section Designated Marksman@Baker 1-1";
+						description="Section Rifleman@Baker 1-1";
 						isPlayable=1;
 					};
 					id=223;
@@ -8595,7 +8652,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_marksman""] call JTF2_fnc_SetGear; Green_1_2 = group this;";
-						description="Section Designated Marksman@Baker 1-2";
+						description="Section Rifleman@Baker 1-2";
 						isPlayable=1;
 					};
 					id=232;
@@ -8671,6 +8728,29 @@ class Mission
 			};
 			id=226;
 			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Baker 1-2";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item50
 		{
@@ -8788,7 +8868,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_marksman""] call JTF2_fnc_SetGear;  Green_1_3 = group this;";
-						description="Section Designated Marksman@Baker 1-3";
+						description="Section Rifleman@Baker 1-3";
 						isPlayable=1;
 					};
 					id=241;
@@ -8864,6 +8944,29 @@ class Mission
 			};
 			id=235;
 			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Baker 1-3";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item51
 		{
@@ -8947,8 +9050,8 @@ class Mission
 					class Attributes
 					{
 						skill=0.60000002;
-						init="[this, ""g_uav""] call JTF2_fnc_SetGear; Green_2_6 = group this;";
-						description="Platoon UAV Operator@Baker 2-6";
+						init="[this, ""g_rifleman""] call JTF2_fnc_SetGear; Green_2_6 = group this;";
+						description="Platoon Runner@Baker 2-6";
 						isPlayable=1;
 					};
 					id=247;
@@ -8967,7 +9070,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_jtac""] call JTF2_fnc_SetGear; Green_2_6 = group this;";
-						description="Platoon JTAC@Baker 2-6";
+						description="Platoon RTO@Baker 2-6";
 						isPlayable=1;
 					};
 					id=248;
@@ -9098,92 +9201,12 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_marksman""] call JTF2_fnc_SetGear; Green_2_1 = group this;";
-						description="2-1 Baker Section Designated Marksman";
+						description="Section Rifleman@Baker 2-1";
 						isPlayable=1;
 					};
 					id=255;
 					type="I_Soldier_M_F";
 					atlOffset=185.97;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="ace_isMedic";
-							expression="if (_value > -1) then {_this setVariable [""ace_medical_medicClass"",_value,true];};";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=-1;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="ace_isHandcuffed";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleHandcuffed}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						class Attribute2
-						{
-							property="ace_isEngineer";
-							expression="if (_value != -1) then {_this setVariable ['ace_isEngineer',_value, true];}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"SCALAR"
-										};
-									};
-									value=-1;
-								};
-							};
-						};
-						class Attribute3
-						{
-							property="ace_isSurrendered";
-							expression="if (_value) then {[objNull,[_this],true] call ace_captives_fnc_moduleSurrender}";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=4;
-					};
 				};
 				class Item6
 				{
@@ -9254,6 +9277,29 @@ class Mission
 			};
 			id=249;
 			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Baker 2-1";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item53
 		{
@@ -9371,7 +9417,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_marksman""] call JTF2_fnc_SetGear; Green_2_2 = group this;";
-						description="Section Designated Marksman@Baker 2-2";
+						description="Section Rifleman@Baker 2-2";
 						isPlayable=1;
 					};
 					id=264;
@@ -9447,6 +9493,29 @@ class Mission
 			};
 			id=258;
 			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Baker 2-2";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item54
 		{
@@ -9564,7 +9633,7 @@ class Mission
 					{
 						skill=0.60000002;
 						init="[this, ""g_marksman""] call JTF2_fnc_SetGear; Green_2_3 = group this;";
-						description="Section Designated Marksman@Baker 2-3";
+						description="Section Rifleman@Baker 2-3";
 						isPlayable=1;
 					};
 					id=273;
@@ -9640,6 +9709,29 @@ class Mission
 			};
 			id=267;
 			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="[_this, _value] call CBA_fnc_setCallsign";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="Baker 2-3";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item55
 		{
@@ -11038,6 +11130,28 @@ class Mission
 				};
 				nAttributes=7;
 			};
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15,0,60};
+			};
+			id=314;
+			type="LIB_House_Fire_System_Logic";
+			atlOffset=185.97;
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15,0,58};
+			};
+			id=315;
+			type="LIB_ArtyFunc";
+			atlOffset=185.97;
 		};
 	};
 };

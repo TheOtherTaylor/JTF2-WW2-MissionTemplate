@@ -11,49 +11,43 @@ removeGoggles player;
 comment "Add containers";
 _uniform = "jtf2_param_indep_uniform_setting" call BIS_fnc_getParamValue;
 switch (_uniform) do{
-    case 0:{ //"Guerilla Woodland"
-        player forceAddUniform "LOP_U_UA_Fatigue_03";
-        player addVest "rhsgref_otv_khaki";
-        player addHeadgear "LOP_H_Beanie_dpmw";
+    case 0:{ //"US Army"
+        player forceAddUniform "U_LIB_US_Private_1st";
+        player addVest "V_LIB_US_Vest_Bar";
+        player addHeadgear "H_LIB_US_Helmet";
+
+        player addItemToVest "LIB_20Rnd_762x63"; //Preload Magazine
+        player addWeapon "LIB_M1918A2_BAR";
+        for "_i" from 1 to 2 do {player addItemToVest "LIB_US_Mk_2";};
+        for "_i" from 1 to 12 do {player addItemToVest "LIB_20Rnd_762x63";};
     };
-    case 1:{//"Guerilla Desert"
-        player forceAddUniform "LOP_U_AM_Fatigue_01_6";
-        player addVest "rhsgref_otv_khaki";
-        player addHeadgear "LOP_H_Beanie_tan";
+    case 1:{//"US Airborne 42"
+        player forceAddUniform "U_LIB_US_AB_Uniform_M42";
+        player addVest "V_LIB_US_AB_Vest_Bar";
+        player addHeadgear "H_LIB_US_AB_Helmet_2";
+
+        player addItemToVest "LIB_20Rnd_762x63"; //Preload Magazine
+        player addWeapon "LIB_M1918A2_BAR";
+        for "_i" from 1 to 2 do {player addItemToVest "LIB_US_Mk_2";};
+        for "_i" from 1 to 10 do {player addItemToVest "LIB_20Rnd_762x63";};
+    };
+    case 1:{//"UK Army"
+        player forceAddUniform "fow_u_uk_bd40_private";
+        player addVest "fow_v_uk_bren_green";
+        player addHeadgear "fow_h_uk_mk2";
+
+        player addItemToVest "fow_30Rnd_303_bren"; //Preload Magazine
+        player addWeapon "fow_w_bren";
+        for "_i" from 1 to 2 do {player addItemToVest "fow_e_no36mk1";};
+        for "_i" from 1 to 8 do {player addItemToVest "fow_30Rnd_303_bren";};
     };
 };
-
-comment "Add weapons";
-player addItemToVest "rhs_200rnd_556x45_M_SAW"; //Preload Belt
-player addWeapon "rhs_weap_m249_pip_L";
-player addPrimaryWeaponItem "rhsusf_acc_anpeq15A";
-player addPrimaryWeaponItem "rhsusf_acc_ELCAN";
 
 comment "Add items";
 player addItemToUniform "ACE_EarPlugs";
 player addItemToUniform "ACE_MapTools";
-for "_i" from 1 to 2 do {player addItemToUniform "ACE_CableTie";};
-for "_i" from 1 to 2 do {player addItemToVest "rhs_200rnd_556x45_M_SAW";};
-//Add Grenades last.  Marine vests are smaller and will not hold two boxes and grenades
-player addItemToVest "HandGrenade";
-for "_i" from 1 to 2 do {player addItemToVest "SmokeShell";};
 player linkItem "ItemMap";
 player linkItem "ItemCompass";
 player linkItem "ItemWatch";
-
-_limited = "jtf2_param_limited_loadouts" call BIS_fnc_getParamValue;
-switch (_limited) do{
-    case 0:{ //"Normal Loadouts"
-        player linkItem "tf_anprc148jem";
-    };
-    case 1:{//"Limited Loadouts"
-        //Just In Case
-        player unlinkItem "NVGoggles";
-        player unlinkItem "NVGoggles_OPFOR";
-        player unlinkItem "NVGoggles_INDEP";
-        player unlinkItem "ItemGPS";
-        player linkItem "tf_anprc148jem";
-    };
-};
 
 [] execVM "jtf2\scripts\gear\aceMedical_Rifleman.sqf";

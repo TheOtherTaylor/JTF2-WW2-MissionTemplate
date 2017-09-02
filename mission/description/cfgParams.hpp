@@ -65,9 +65,10 @@ class Params{
     };
     class jtf2_param_indep_uniform_setting{
         title = "Independent Starting Uniform";
-        values[] = { 0, 1};
-        texts[] = { "Guerilla Woodland",
-                    "Guerilla Desert"};
+        values[] = { 0, 1, 2};
+        texts[] = { "US Army",
+                    "US Airborne '42",
+                    "UK Army"};
         default = 0;
     };
     class jtf2_param_independent_friendly_setting{
